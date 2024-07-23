@@ -1,14 +1,29 @@
-// import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Game } from "../hooks/useGames";
+import PlatformIconList from "./PlatformIconList";
+import GameScore from "./GameScore";
+import getCroppedImageUrl from "../services/image-url";
+import EmojiRating from "./EmojiRating";
 
-// const GameCard = () => {
-//   return (
-//     <Card>
-//       <Image src={game.box_art_url} width={100} height={150} />
-//       <CardBody>
-//         <Heading>{game.name}</Heading>
-//       </CardBody>
-//     </Card>
-//   );
-// };
+interface Props {
+  game: Game;
+}
 
-// export default GameCard;
+const GameCard = ({ game }: Props) => {
+  return (
+    <Card>
+      <Image src={getCroppedImageUrl(game.background_image)} />
+      <CardBody>
+        <HStack justifyContent="space-between">
+          <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+          <GameScore score={game.metacritic} />
+        </HStack>
+        <Heading fontSize="2xl" flexWrap={"nowrap"}>
+          {game.name} <EmojiRating rating={game.rating_top} />
+        </Heading>
+      </CardBody>
+    </Card>
+  );
+};
+
+export default GameCard;
