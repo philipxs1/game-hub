@@ -18,7 +18,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem
             flexWrap="nowrap"
             display="flex"
