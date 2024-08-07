@@ -3,7 +3,7 @@ import { GameQuery } from "../App";
 
 import apiClient from "../services/api-client";
 
-import { FetchResponse } from "./useData";
+import { FetchResponse } from "../services/api-client";
 
 export interface Platform {
   id: number;
@@ -28,7 +28,7 @@ const useGames = (gameQuery: GameQuery) =>
         .get<FetchResponse<Game>>("/games", {
           params: {
             genres: gameQuery.genre?.id,
-            platforms: gameQuery.platform?.id,
+            parent_platforms: gameQuery.platform?.id,
             ordering: gameQuery.sortOrder,
             search: gameQuery.searchParam,
           },
