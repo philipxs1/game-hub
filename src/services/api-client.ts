@@ -1,15 +1,28 @@
-import axios from "axios";
-
-const clientSecret = import.meta.env.VITE_SECRET_KEY as string;
+import axios, { AxiosRequestConfig } from "axios";
 
 export interface FetchResponse<T> {
   count: number;
   results: T[];
+  next: string | null;
 }
 
-export default axios.create({
+const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
-    key: clientSecret,
+    key: "e53bba19d7914970889f528d70c8e06d",
   },
 });
+
+class APIClient<T> {
+  endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = endpoint;
+  }
+
+  getAll = (config: AxiosRequestConfig<any>) => {
+    return axiosInstance.get<FetchResponse<T>>(this.endpoint, config).then((res) => res.data);
+  };
+}
+
+export default APIClient;
