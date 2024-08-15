@@ -3,16 +3,14 @@ import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { useState } from "react";
-import { Genre } from "./hooks/useGenres";
 
-import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 import PlatformSelect from "./components/PlatformSelect";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreID: number;
+  platformId?: number;
   sortOrder: string;
   searchParam: string;
 }
@@ -31,22 +29,15 @@ function App() {
         templateColumns={{
           base: "1fr",
           lg: "200px, 1fr",
-        }}
-        // gridTemplateRows={"100px 1fr 110px"}
-        // gridTemplateColumns={"150px 1fr"}
-        // h="200px"
-        // gap="1"
-        // color="blackAlpha.700"
-        // fontWeight="bold"
-      >
+        }}>
         <GridItem area={"nav"}>
           <Navbar onSearch={(searchParam) => setGameQuery({ ...gameQuery, searchParam })} />
         </GridItem>
         <Show above="lg">
           <GridItem area={"aside"} paddingX={5}>
             <GenreList
-              selectedGenre={gameQuery.genre}
-              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreID={gameQuery.genreID}
+              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genreID: genre.id })}
             />
           </GridItem>
         </Show>
@@ -56,8 +47,10 @@ function App() {
             <GameHeading gameQuery={gameQuery} />
             <Flex gap={5} marginBottom={5}>
               <PlatformSelect
-                selectedPlatform={gameQuery.platform}
-                onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+                selectedPlatformId={gameQuery.platformId}
+                onSelectPlatform={(platform) =>
+                  setGameQuery({ ...gameQuery, platformId: platform.id })
+                }
               />
               <SortSelector
                 sortOrder={gameQuery.sortOrder}
