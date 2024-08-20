@@ -1,18 +1,16 @@
 import { Input, InputGroup, InputLeftElement, InputRightElement, Kbd } from "@chakra-ui/react";
 import { useRef } from "react";
 import { IoSearch } from "react-icons/io5";
+import useGameQueryStore from "../state-management /store";
 
-interface Props {
-  onSearch: (searchParam: string) => void;
-}
-
-const SearchBar = ({ onSearch }: Props) => {
+const SearchBar = () => {
   const ref = useRef<HTMLInputElement>(null);
+  const setSearchText = useGameQueryStore((s) => s.setSearchText);
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) setSearchText(ref.current.value);
       }}>
       <InputGroup width="100%">
         <InputLeftElement children={<IoSearch />} pointerEvents="none" />
