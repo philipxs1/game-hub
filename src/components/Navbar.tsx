@@ -8,9 +8,11 @@ const Navbar = () => {
   return (
     <HStack marginTop={5}>
       <div>
-        <Text fontSize="lg" letterSpacing={6} fontWeight="900" paddingX={10}>
-          <Link to="/"> RAWG</Link>
-        </Text>
+        <Link to="/">
+          <Text fontSize="lg" letterSpacing={6} fontWeight="900" paddingX={10}>
+            RAWG
+          </Text>
+        </Link>
       </div>
       <SearchBar />
       <ColorToggle />

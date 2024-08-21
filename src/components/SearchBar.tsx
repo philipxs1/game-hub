@@ -2,15 +2,20 @@ import { Input, InputGroup, InputLeftElement, InputRightElement, Kbd } from "@ch
 import { useRef } from "react";
 import { IoSearch } from "react-icons/io5";
 import useGameQueryStore from "../state-management /store";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const navigate = useNavigate();
   const ref = useRef<HTMLInputElement>(null);
   const setSearchText = useGameQueryStore((s) => s.setSearchText);
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (ref.current) setSearchText(ref.current.value);
+        if (ref.current) {
+          setSearchText(ref.current.value);
+          navigate("/");
+        }
       }}>
       <InputGroup width="100%">
         <InputLeftElement children={<IoSearch />} pointerEvents="none" />
@@ -24,7 +29,7 @@ const SearchBar = () => {
           min={10}
           ref={ref}
         />
-        <InputRightElement display="flex" flexDirection="row" paddingX={20} gap={2}>
+        <InputRightElement hideBelow="md" display="flex" flexDirection="row" paddingX={20} gap={2}>
           <Kbd>alt</Kbd> + <Kbd>Enter</Kbd>
         </InputRightElement>
       </InputGroup>
