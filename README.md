@@ -27,7 +27,7 @@ This website was built with the following technologies:
 - Build a responsive and interactive web application for my portfolio, showcasing front-end development skills.
 - Practice consuming and integrating with a third-party REST API.
 - Improve state management and caching strategies with tools like Zustand and React Query.
-- Deliver a modern, clean UI with TailwindCSS.
+- Deliver a modern, clean UI with Chakra UI
 - Gain confidence working with TypeScript in a real project.
 
 ---
