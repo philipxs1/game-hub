@@ -17,9 +17,8 @@ This website was built with the following technologies:
 - **React Router** – Client-side routing
 - **Zustand** – State management
 - **React Query** – Data fetching & caching
-- **TailwindCSS** – Styling & responsive design
+- **Chakra Ui** – Styling & responsive design
 - **RAWG.io API** – Game data & metadata provider
-- **Firebase (optional, if you added auth/firestore)** – Authentication & storage
 
 ---
 
