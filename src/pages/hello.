@@ -1,0 +1,10 @@
+navigation: Bikes, Apparel, Parts, Accessoiries, Sale
+
+Bikes will have navigation tiles on the bikes page: Electric Bikes, Mountian Bikes, Road Bikes, Gravel Bikes, City Bikes, Kids Bikes
+
+Apparel will have navigation tiles on the cycling clothing page: Men's CLothiung, Women's Clothing, Cycling Shoes, Cycling Shorts, Cycling Jerseys, Cycling JAckets, Cycling Gloces, Bike Helmets
+appareal is also organised by: tops: jersys, jackets & vests, Base Layters - bottoms: tights & pants, bibs & shorts - shoes: mountain bike shoes, road bike shoes, gravel bike shoes - accesssoriesL helmets, socks, gloves, caps - casual wear: shirts, hats
+
+parts: will just show all parts but is organised by: wheels, tyres, saddles, pedals, suspension, tubes, handlebars, seatposts, stems, service parts.
+
+Accessories will show all products but is oragnised by: rider accessories: shoes, helmets, bottle cages, bags, pumps, water bottles - Bike Accessories: lights, carg bike accessories, grips & tape, tools, commute gear
